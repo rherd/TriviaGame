@@ -8,6 +8,8 @@
 //
 
 $(document).ready(function () {
+
+
     //setting the questions, choices and answers into a variable
     var questions = [
         {
@@ -34,6 +36,54 @@ $(document).ready(function () {
     ];
 
     function showQuestions() {
+
+    //this shows the Questions and starts the time for the game. 
+    // var timeLeft = 30;
+    // var intervalId;
+
+    // intervalId = setInterval(decrement, 1000);
+
+    // function decrement() {
+    //     timeLeft--;
+    //     $(".game-time").text("Time Remaining: " + timeLeft + " Seconds!");
+    //     if (timeLeft === 0) {
+    //         stop()
+    //     }
+    // }
+
+    // function stop() {
+    //     clearInterval(intervalId);
+    //     done();
+    // }
+
+    function startTimer() {
+        // set timeout to 31 seconds so display begins with 30 seconds
+        // because first display comes after initial interval of 1 sec
+        var timeout = 30;
+        function run() {
+            counter = setInterval(decrement, 1000);
+        }
+        function decrement() {
+            timeout--;
+            // $("#timer").show();
+            $(".game-time").text("Time Remaining: " + timeout + " Seconds!");
+    
+            if (timeout == 0) {
+                // if time runs out, stop the timer, display time's up and ...
+                $(".game-time").html("Time's Up!");
+                clearInterval(counter);
+                // ... and also run the timesUp function
+                done();
+            }
+        }
+        run();
+    }
+
+    startTimer();
+    
+        
+
+
 
         $("#start").hide();
 
@@ -63,6 +113,11 @@ $(document).ready(function () {
 
     function done() {
 
+        //do this just in case we finish early
+        clearInterval(counter);
+        timeout = 0;
+        $(".game-time").text("Let's See How You Did!");
+
         $("#submit").hide();
 
         var myChoices = [];
@@ -87,14 +142,24 @@ $(document).ready(function () {
         }
 
         var correctYesNo = [];
+        var correct = 0;
+        var incorrect = 0;
+        var noAnswer = 0;
 
         for (var i = 0; i < questions.length; i++) {
             if (questions[i].answer == myChoices[i].slice(-1)) {
                 correctYesNo.push("true");
+                correct++;
+            }
+
+            else if (myChoices[i] == "unanswered") {
+                correctYesNo.push("unanswered");
+                noAnswer++;
             }
             else {
                 correctYesNo.push("false");
                 console.log(myChoices[i].slice(-1));
+                incorrect++;
             }
         }
 
@@ -104,6 +169,13 @@ $(document).ready(function () {
         $("#questions").hide();
 
         $("#done").append("<h1>Done!</h1>");
+
+        $("#done").append("<div>Correct: " + correct + "</div>");
+        $("#done").append("<div>Incorrect: " + incorrect + "</div>");
+        $("#done").append("<div>Unanswered: " + noAnswer + "</div>");
+
+
+
     }
 
 
