@@ -37,51 +37,49 @@ $(document).ready(function () {
 
     function showQuestions() {
 
-    //this shows the Questions and starts the time for the game. 
-    // var timeLeft = 30;
-    // var intervalId;
+        //this shows the Questions and starts the time for the game. 
+        // var timeLeft = 30;
+        // var intervalId;
 
-    // intervalId = setInterval(decrement, 1000);
+        // intervalId = setInterval(decrement, 1000);
 
-    // function decrement() {
-    //     timeLeft--;
-    //     $(".game-time").text("Time Remaining: " + timeLeft + " Seconds!");
-    //     if (timeLeft === 0) {
-    //         stop()
-    //     }
-    // }
+        // function decrement() {
+        //     timeLeft--;
+        //     $(".game-time").text("Time Remaining: " + timeLeft + " Seconds!");
+        //     if (timeLeft === 0) {
+        //         stop()
+        //     }
+        // }
 
-    // function stop() {
-    //     clearInterval(intervalId);
-    //     done();
-    // }
+        // function stop() {
+        //     clearInterval(intervalId);
+        //     done();
+        // }
 
-    function startTimer() {
-        // set timeout to 31 seconds so display begins with 30 seconds
-        // because first display comes after initial interval of 1 sec
-        var timeout = 30;
-        function run() {
-            counter = setInterval(decrement, 1000);
-        }
-        function decrement() {
-            timeout--;
-            // $("#timer").show();
-            $(".game-time").text("Time Remaining: " + timeout + " Seconds!");
-    
-            if (timeout == 0) {
-                // if time runs out, stop the timer, display time's up and ...
-                $(".game-time").html("Time's Up!");
-                clearInterval(counter);
-                // ... and also run the timesUp function
-                done();
+        function startTimer() {
+            // set timeout to 31 seconds so display begins with 30 seconds
+            // because first display comes after initial interval of 1 sec
+            var timeout = 30;
+            function run() {
+                counter = setInterval(decrement, 1000);
             }
-        }
-        run();
-    }
+            function decrement() {
+                timeout--;
+                // $("#timer").show();
+                $(".game-time").text("Time Remaining: " + timeout + " Seconds!");
 
-    startTimer();
-    
-        
+                if (timeout == 0) {
+                    // if time runs out, stop the timer, display time's up and ...
+                    $(".game-time").html("Time's Up!");
+                    clearInterval(counter);
+                    // ... and also run the timesUp function
+                    done();
+                }
+            }
+            run();
+        }
+
+        startTimer();
 
 
 
