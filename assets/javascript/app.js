@@ -79,7 +79,7 @@ $(document).ready(function () {
                     done();
                 }
             }
-            run();
+           run();
         }
 
         startTimer();
@@ -171,7 +171,7 @@ $(document).ready(function () {
 
         $("#questions").hide();
 
-        $("#done").append("<h1 class = 'last'>Done!</h1>");
+        //$("#done").append("<h1 class = 'last'>Done!</h1>");
 
         $("#done").append("<div class = 'last'>Correct: " + correct + "</div>");
         $("#done").append("<div class = 'last'>Incorrect: " + incorrect + "</div>");
