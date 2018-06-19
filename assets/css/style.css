@@ -53,7 +53,7 @@ body {
     width:300px;
     border-style:solid;
     border-width:10px;
-    border-color:black;
+    border-color:blue;
 }
 
 p {
@@ -104,7 +104,7 @@ p {
     width:300px;
     border-style:solid;
     border-width:10px;
-    border-color:black;
+    border-color:blue;
     margin: 0 auto;
 }
 
