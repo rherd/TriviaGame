@@ -62,7 +62,7 @@ $(document).ready(function () {
         function startTimer() {
             // set timeout to 31 seconds so display begins with 30 seconds
             // because first display comes after initial interval of 1 sec
-            var timeout = 99999999;
+            var timeout = 90;
             function run() {
                 counter = setInterval(decrement, 1000);
             }
