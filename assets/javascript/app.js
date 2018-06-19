@@ -37,31 +37,8 @@ $(document).ready(function () {
 
     function showQuestions() {
 
-        // var submitButton = "<button id='submit'>Submit</button>"
-        // $("#submit").html(submitButton); //creates submit button for use later
-
-        //this shows the Questions and starts the time for the game. 
-        // var timeLeft = 30;
-        // var intervalId;
-
-        // intervalId = setInterval(decrement, 1000);
-
-        // function decrement() {
-        //     timeLeft--;
-        //     $(".game-time").text("Time Remaining: " + timeLeft + " Seconds!");
-        //     if (timeLeft === 0) {
-        //         stop()
-        //     }
-        // }
-
-        // function stop() {
-        //     clearInterval(intervalId);
-        //     done();
-        // }
-
         function startTimer() {
-            // set timeout to 31 seconds so display begins with 30 seconds
-            // because first display comes after initial interval of 1 sec
+
             var timeout = 60;
             function run() {
                 counter = setInterval(decrement, 1000);
@@ -75,7 +52,7 @@ $(document).ready(function () {
                     // if time runs out, stop the timer, display time's up and ...
                     $(".game-time").html("Time's Up!");
                     clearInterval(counter);
-                    // ... and also run the timesUp function
+                    // call the submit function
                     done();
                 }
             }
