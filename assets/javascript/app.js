@@ -9,7 +9,7 @@
 
 $(document).ready(function () {
 
-
+    $("#questions").hide();
     //setting the questions, choices and answers into a variable
     var questions = [
         {
@@ -37,6 +37,9 @@ $(document).ready(function () {
 
     function showQuestions() {
 
+        // var submitButton = "<button id='submit'>Submit</button>"
+        // $("#submit").html(submitButton); //creates submit button for use later
+
         //this shows the Questions and starts the time for the game. 
         // var timeLeft = 30;
         // var intervalId;
@@ -59,7 +62,7 @@ $(document).ready(function () {
         function startTimer() {
             // set timeout to 31 seconds so display begins with 30 seconds
             // because first display comes after initial interval of 1 sec
-            var timeout = 30;
+            var timeout = 99999999;
             function run() {
                 counter = setInterval(decrement, 1000);
             }
@@ -81,9 +84,10 @@ $(document).ready(function () {
 
         startTimer();
 
-
+        $("#questions").show();
 
         $("#start").hide();
+        $(".h1").hide();
 
         for (var i = 0; i < questions.length; i++) {
             var thisQ = questions[i].question;
@@ -106,7 +110,7 @@ $(document).ready(function () {
 
 
         var submitButton = "<button id='submit'>Submit</button>"
-        $("#questions").append(submitButton); //creates submit button for use later
+        $("#done").html(submitButton); //creates submit button for use later
     }
 
     function done() {
@@ -117,6 +121,7 @@ $(document).ready(function () {
         $(".game-time").text("Let's See How You Did!");
 
         $("#submit").hide();
+        
 
         var myChoices = [];
 
@@ -166,11 +171,11 @@ $(document).ready(function () {
 
         $("#questions").hide();
 
-        $("#done").append("<h1>Done!</h1>");
+        $("#done").append("<h1 class = 'last'>Done!</h1>");
 
-        $("#done").append("<div>Correct: " + correct + "</div>");
-        $("#done").append("<div>Incorrect: " + incorrect + "</div>");
-        $("#done").append("<div>Unanswered: " + noAnswer + "</div>");
+        $("#done").append("<div class = 'last'>Correct: " + correct + "</div>");
+        $("#done").append("<div class = 'last'>Incorrect: " + incorrect + "</div>");
+        $("#done").append("<div class = 'last'>Unanswered: " + noAnswer + "</div>");
 
 
 
